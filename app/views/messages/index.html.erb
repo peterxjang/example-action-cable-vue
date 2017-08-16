@@ -1,18 +1,15 @@
 <h1>All messages</h1>
 <div id="app">
-  {{ message }}
-</div>
-<% if current_user %>
-  <%= form_tag "/messages", method: :post do %>
+  <% if current_user %>
     <div>
-      New message: <input type="text" name="body">
-      <input type="submit" value="Submit">
+      New message: <input type="text" v-model="newMessageBody">
+      <button v-on:click="createMessage()">Submit</button>
     </div>
   <% end %>
-<% end %>
 
-<% @messages.each do |message| %>
-  <div class='message'>
-    <%= message.user.name %>: <%= message.body %>
+  <div v-for="message in messages">
+    <div class='message'>
+      {{ message.name }}: {{ message.body }}
+    </div>
   </div>
-<% end %>
+</div>

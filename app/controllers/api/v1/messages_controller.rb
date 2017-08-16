@@ -1,6 +1,6 @@
 class Api::V1::MessagesController < ApplicationController
   def index
-    @messages = Message.all
+    @messages = Message.includes(:user).all.order(created_at: :desc)
     render "index.json.jbuilder"
   end
 
