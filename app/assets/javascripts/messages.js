@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
           type: "post",
           data: "body=" + this.newMessageBody,
           success: function(response) {
-            this.messages.unshift(response);
             this.newMessageBody = "";
           }.bind(this)
         });

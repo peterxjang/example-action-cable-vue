@@ -9,5 +9,6 @@ App.activity = App.cable.subscriptions.create("ActivityChannel", {
 
   received: function(data) {
     // Called when there's incoming data on the websocket for this channel
+    app.__vue__.messages.unshift(data);
   }
 });
