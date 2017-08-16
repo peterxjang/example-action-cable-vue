@@ -1,5 +1,7 @@
 <h1>All messages</h1>
-
+<div id="app">
+  {{ message }}
+</div>
 <% if current_user %>
   <%= form_tag "/messages", method: :post do %>
     <div>
